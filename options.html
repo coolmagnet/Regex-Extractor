@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Regex Extractor Preferences</title>
+</head>
+<body>
+  <h1>Regex Patterns</h1>
+  <p>Manage regex patterns to extract text from webpages. Use <code>( )</code> to capture the text you want to copy, similar to <code>sed</code>'s memory recall (e.g., <code>\1</code>) or <code>grep --only-matching</code>. Only the first <code>( )</code> group is copied to the clipboard.</p>
+  <p><strong>Examples:</strong></p>
+  <ul>
+    <li><code><title>(.+?) -[^-]*</title></code>: Captures title text before " - " (e.g., "My Page" from "My Page - Brand").</li>
+    <li><code>([a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,})</code>: Captures emails (e.g., "user@example.com").</li>
+    <li><code>&lt;h1&gt;([^<]+)&lt;/h1&gt;</code>: Captures h1 content (e.g., "Heading" from "&lt;h1&gt;Heading&lt;/h1&gt;").</li>
+  </ul>
+  <p>Enter patterns below, optionally with flags like <code>/i</code> for case-insensitive (e.g., <code>(magnet:\?xt=urn:[a-z0-9:]+)/i</code>). Add a note to describe each pattern.</p>
+  <div id="regex-list"></div>
+  <p>
+    <input type="checkbox" id="hotkey-toggle">
+    <label for="hotkey-toggle">Enable Hotkey (Ctrl+Shift+Space)</label>
+  </p>
+  <button id="add-regex">Add New Regex</button>
+  <button id="save-regexes">Save Changes</button>
+  <button id="reset-regexes">Reset to Defaults</button>
+  <span style="display: inline-block; width: 20px;"></span>
+  <button id="export-regexes">Export Regexes</button>
+  <button id="import-regexes">Import Regexes</button>
+  <input type="file" id="import-file" accept=".json" style="display: none;">
+  <p id="status" style="color: red;"></p>
+  <script src="options.js"></script>
+</body>
+</html>
